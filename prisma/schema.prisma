@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model departamento {
+  codigo      Int        @id @default(autoincrement())
+  nombre      String
+  presupuesto Float
+  empleados   empleado[]
+}
+
+model empleado {
+  codigo              Int          @id @default(autoincrement())
+  nit                 String
+  nombre              String
+  apellido1           String
+  apellido2           String
+  codigoId            Int
+  codigo_departamento departamento @relation(fields: [codigoId], references: [codigo])
+}

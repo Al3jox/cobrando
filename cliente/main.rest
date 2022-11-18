@@ -1,0 +1,14 @@
+GET http://localhost:1234
+
+
+
+###
+POST http://localhost:1234/departamento
+
+{
+    "nombre": "Bogota",
+    "presupuesto": 50000000,
+    "empleados": 
+}
+
+###
